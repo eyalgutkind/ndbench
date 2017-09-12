@@ -43,7 +43,7 @@ public class NdBenchGuiceModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(NdBenchMonitor.class).to(FakeMonitor.class);
-        String discoveryEnv = System.getenv(NdBenchConstants.DISCOVERY_ENV);
+        String discoveryEnv = "AWS";
         Logger.info("DISCOVERY_ENV is set to: " + discoveryEnv);
         if (discoveryEnv != null && discoveryEnv.equals(NdBenchConstants.DISCOVERY_ENV_CF)) {
             bind(IClusterDiscovery.class).to(CfClusterDiscovery.class);

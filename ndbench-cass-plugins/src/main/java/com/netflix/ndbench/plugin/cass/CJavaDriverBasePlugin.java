@@ -103,7 +103,7 @@ public abstract class CJavaDriverBasePlugin implements NdBenchClient {
 
    protected void upsertGenereicKeyspace()
    {
-       session.execute("CREATE KEYSPACE IF NOT EXISTS " +KeyspaceName+" WITH replication = {'class': 'NetworkTopologyStrategy','eu-west': '3','us-east': '3'};");
+       session.execute("CREATE KEYSPACE IF NOT EXISTS " +KeyspaceName+" WITH replication = {'class': 'NetworkTopologyStrategy', 'datacenter1': '3'} AND durable_writes = true;");
        session.execute("Use " + KeyspaceName);
    }
 }
